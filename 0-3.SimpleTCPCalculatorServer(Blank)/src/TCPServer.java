@@ -27,6 +27,14 @@ class TCPServer {
 			String clientName = parts[0];
 			int clientNumber = Integer.parseInt(parts[1]);
 
+			// Terminate the server if the client sends a number outside the range of 1 to
+			// 100
+			if (clientNumber < 1 || clientNumber > 100) {
+				connectionSocket.close();
+				welcomeSocket.close();
+				break;
+			}
+
 			System.out.print("Enter an integer between 1 and 100: ");
 			int serverNumber = Integer.parseInt(inFromServer.readLine());
 
@@ -40,13 +48,6 @@ class TCPServer {
 			String serverMessage = serverName + ": " + serverNumber; // Mission 3
 			outToClient.writeBytes(serverMessage + '\n'); // Mission 3
 
-			// Terminate the server if the client sends a number outside the range of 1 to
-			// 100
-			if (clientNumber < 1 || clientNumber > 100) {
-				connectionSocket.close();
-				welcomeSocket.close();
-				break;
-			}
 		}
 	}
 }

@@ -29,6 +29,11 @@ public class WebClient {
 /**
 * Improve your HTTP Client to provide other request Methods(POST, DELETE, …)
 * and also improve to handle headers(Content-Type, User-Agent, …)
+ * * 여기서 다른 메서드들도 받게 하려면, 유저가 선택하게끔 해야하는데,그렇게 해야하면 아래 코드 넣기
+ * * Scanner scanner = new Scanner(System.in);
+ * System.out.println("Enter HTTP method (GET, POST, DELETE, etc.):");
+ * String method = scanner.nextLine().toUpperCase();
+ * if (method.equals("POST")) { } -> 대충 요런 느낌으로
 */
             // Mission 2: Send HTTP GET Request and Read and display the response
         	// Fill#4, Send HTTP GET request
@@ -39,7 +44,6 @@ public class WebClient {
             out.println("Accept-Language: en-us,en;q=0.5");  // Accept-Language 헤더
             out.println("Accept-Encoding: gzip,deflate");  // Accept-Encoding 헤더
             out.println("Accept-Charset: ISO-8859-1,utf-8;q=0.7");  // Accept-Charset 헤더
-            out.println("Connection: keep-alive");  // Connection 헤더
             out.println();  // 빈 줄로 요청 헤더 끝을 표시
 
             // Mission 3: Read and display the response
